@@ -32,13 +32,9 @@ pipeline {
             }
         }
         stage('Deploy') {
-            when {
-                
+            when {     
                  expression {
-                    // Strip 'origin/' if present, then compare
-                    def branchName = env.GIT_BRANCH.replace('origin/', '')
-                     echo "Running on branch: ${branchName}"
-                    return branchName == 'main'
+                   env.GIT_BRANCH = 'origin/main'  
                 }
             }
             steps {
