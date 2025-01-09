@@ -24,6 +24,8 @@ pipeline {
         }
         stage('Test') {
             steps {
+                def branchName = env.GIT_BRANCH
+                echo "Running on branch: ${branchName}"
                 sh "echo this is Test stage"
             }
         }
